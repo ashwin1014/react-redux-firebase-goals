@@ -1,11 +1,18 @@
 {
-  "name": "react-redux-firebase-todos",
+  "name": "react-redux-firebase-goals",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^6.1.0",
+    "firebaseui": "^4.0.0",
+    "history": "^4.9.0",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

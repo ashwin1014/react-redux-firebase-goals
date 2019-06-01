@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React  from 'react';
+import { firebaseApp } from './config';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
+import 'materialize-css/dist/css/materialize.min.css';
+import { createBrowserHistory  } from 'history'
+import { Router, Route, Switch  } from 'react-router-dom';
 
-function App() {
+
+const history = createBrowserHistory();
+
+firebaseApp.auth().onAuthStateChanged(user => {
+  if(user) {
+      const { email } = user;
+      // store.dispatch(logUser(email));
+      // history.push('/')
+      console.log('User signed in')
+  }else {
+      history.push('/signin')
+      console.log('User signed out')
+  }
+}) 
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router history={ history }>
+     <Navbar/>
+      <div className="App">
+        <Switch path="/">
+          <Route exact path="/" component={Home}/>
+          <Route path="/signin" component={SignIn}/>
+          <Route path="/signup" component={SignUp}/>
+        </Switch>
+      </div>
+   </Router>
+  )
 }
 
 export default App;
