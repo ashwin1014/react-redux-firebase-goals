@@ -1,14 +1,13 @@
 import React  from 'react';
 import { connect } from 'react-redux';
+import AddGoal from '../components/goals/AddGoal';
 
 
 const Home = () => {
     return (
        <div className="container">
        <br/>
-       <fieldset>
-           <div>Add Goal</div>
-        </fieldset>
+           <AddGoal/>
         <br/>
         <fieldset>
             <legend>Goals</legend>
