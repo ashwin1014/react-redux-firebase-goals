@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import {goalRef} from '../../config';
 
 class AddGoal extends Component {
@@ -15,11 +16,12 @@ class AddGoal extends Component {
 
     addGoal = () => {
         const { title } = this.state;
+        const { signedInUser } = this.props.user;
         if(title !== '') {
-            // goalRef.push({
-            //     email,
-            //     title
-            // });
+            goalRef.push({
+                signedInUser,
+                title
+            });
             console.log(this.state)
             this.setState({title: ''})
            }      
@@ -50,4 +52,11 @@ class AddGoal extends Component {
     }
 }
 
-export default AddGoal;
+const mapStateToProps = (state) => {
+    const { user } = state;
+    return {
+        user
+    }
+};
+
+export default connect(mapStateToProps, null)(AddGoal);

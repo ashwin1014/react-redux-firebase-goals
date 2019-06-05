@@ -8,7 +8,7 @@ const Navbar = (props) => {
        <div className="navbar-fixed">
         <nav className="nav-wrapper blue darken-2">
           <div className="container">
-              <Link to={'/'} className="brand-logo center">Goal Coach</Link>
+              <Link to={'/'} className="brand-logo center">Goal's</Link>
           </div>
         </nav>
        </div>
