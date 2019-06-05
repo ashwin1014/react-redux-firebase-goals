@@ -1,4 +1,4 @@
-import { SIGNED_IN, SET_GOALS } from '../types';
+import { SIGNED_IN, SET_GOALS, SET_COMPLETED } from '../types';
 
 export function logUser(signedInUser) {
     const action = {
@@ -14,4 +14,12 @@ export function setGoals(goals) {
         goals
     }
     return action
+}
+
+export function setCompleted(completedGoals) {
+    const action = {
+        type: SET_COMPLETED,
+        completedGoals
+    }
+    return action;
 }
